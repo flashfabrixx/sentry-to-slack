@@ -61,7 +61,7 @@ const isError = level === "error";
       "type": "divider"
     },
   ];
-
+try{
   const response = await fetch('https://slack.com/api/chat.postMessage', {
     method: 'POST',
     headers: {
@@ -75,6 +75,9 @@ const isError = level === "error";
   });
 
   return response.data;
+}catch(e){
+  console.error(e);
+}
 }
 export default async (req) => {
   
@@ -82,7 +85,7 @@ export default async (req) => {
   console.log(typeof body)
   const {project,culprit, event:{level, logentry:{formatted}, user:{email}, environment,metadata :{title }}} = body;
 
-  sendMessage(process.env.CHANNEL_ID, {level, formatted, environment, email,title, culprit, project});
+  await sendMessage(process.env.CHANNEL_ID, {level, formatted, environment, email,title, culprit, project});
   
   return new Response(`Hello from Edge.js! ${body}`)
 }
