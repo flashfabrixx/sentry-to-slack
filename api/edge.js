@@ -81,7 +81,7 @@ export default async (req) => {
   console.log(typeof body)
   const {project,culprit, event:{level, logentry:{formatted}, user:{email}, environment,metadata :{title }}} = body;
 
-  sendMessage(CHANNEL_ID, {level, formatted, environment, email,title, culprit, project});
+  sendMessage(process.env.CHANNEL_ID, {level, formatted, environment, email,title, culprit, project});
   
   return new Response(`Hello from Edge.js! ${body}`)
 }
