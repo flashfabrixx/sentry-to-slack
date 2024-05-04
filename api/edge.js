@@ -3,6 +3,7 @@ export const config = {
 }
 
 process.env.SLACK_ACCESS_TOKEN = "xoxb-3949805362081-6695316698354-4Y8ZOl4ITeMjH8yq8OlU9Qoe"
+const channelId = "C071ZEMP5U2"
 
 const sendMessage = async (channel, {level, formatted, environment, email,title, culprit, project}) => {
 const isError = level === "error";
@@ -81,9 +82,7 @@ export default async (req) => {
   
   const body = await req.json()
   console.log(typeof body)
-  console.log(body)
   const {project,culprit, event:{level, logentry:{formatted}, user:{email}, environment,metadata :{title }}} = body;
-  console.log({project, formatted})
 
   sendMessage(channelId, {level, formatted, environment, email,title, culprit, project});
   
