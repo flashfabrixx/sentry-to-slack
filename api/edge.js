@@ -80,6 +80,7 @@ const isError = level === "error";
 export default async (req) => {
   
   const body = await req.text()
+  console.log(Object.keys(body))
   const {project,culprit, event:{level, logentry:{formatted}, user:{email}, environment,metadata :{title }}} = body;
   console.log({project, formatted})
 
