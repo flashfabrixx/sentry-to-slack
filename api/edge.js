@@ -1,9 +1,9 @@
 export const config = {
   runtime: 'edge',
 }
-const {sendMessage} = require('./sendMessage')
 
 export default async (req) => {
+  const {sendMessage} = require('./sendMessage')
   const body = await req.text()
   const {project,culprit, event:{level, logentry:{formatted}, user:{email}, environment,metadata :{title }}} = body;
   console.log({project, formatted})
