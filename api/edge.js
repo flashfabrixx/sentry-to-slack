@@ -1,17 +1,8 @@
-import axios from 'axios'
-
 export const config = {
   runtime: 'edge',
 }
 
 process.env.SLACK_ACCESS_TOKEN = "xoxb-3949805362081-6695316698354-4Y8ZOl4ITeMjH8yq8OlU9Qoe"
-const slackClient = axios.create({
-  baseURL: 'https://slack.com/api',
-  headers: {
-    'Content-Type': 'application/json; charset=utf-8',
-    Authorization: `Bearer ${process.env.SLACK_ACCESS_TOKEN}`,
-  },
-})
 
 const sendMessage = async (channel, {level, formatted, environment, email,title, culprit, project}) => {
 const isError = level === "error";
