@@ -2,9 +2,6 @@ export const config = {
   runtime: 'edge',
 }
 
-process.env.SLACK_ACCESS_TOKEN = "xoxb-3949805362081-6695316698354-4Y8ZOl4ITeMjH8yq8OlU9Qoe"
-const channelId = "C071ZEMP5U2"
-
 const sendMessage = async (channel, {level, formatted, environment, email,title, culprit, project}) => {
 const isError = level === "error";
   const blocks = [
@@ -84,7 +81,7 @@ export default async (req) => {
   console.log(typeof body)
   const {project,culprit, event:{level, logentry:{formatted}, user:{email}, environment,metadata :{title }}} = body;
 
-  sendMessage(channelId, {level, formatted, environment, email,title, culprit, project});
+  sendMessage(CHANNEL_ID, {level, formatted, environment, email,title, culprit, project});
   
   return new Response(`Hello from Edge.js! ${body}`)
 }
