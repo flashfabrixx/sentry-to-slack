@@ -3,6 +3,7 @@ export const config = {
 }
 
 const sendMessage = async (channel, {level, formatted, environment, email,title, culprit, project}) => {
+  console.info({channel, level, formatted, environment, email, title, culprit, project});
 const isError = level === "error";
   const blocks = [
     {
