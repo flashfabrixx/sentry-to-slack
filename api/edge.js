@@ -4,9 +4,5 @@ export const config = {
 
 export default (req) => {
   console.log(req.body)
-  return {
-    status: 200,
-    body: req.body,
-
-  }
+  return new Response(`Hello from Edge.js! ${JSON.stringify(req.body)}`)
 }
