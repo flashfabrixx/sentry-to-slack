@@ -72,9 +72,16 @@ const isError = level === "error";
     },
   ];
 
-  const response = await slackClient.post('/chat.postMessage', {
-    channel,
-    blocks,
+  const response = await fetch('https://slack.com/api/chat.postMessage', {
+    method: 'POST',
+    headers: {
+      'Content-Type': 'application/json; charset=utf-8',
+      'Authorization': `Bearer ${process.env.SLACK_ACCESS_TOKEN}`,
+    },
+    body: JSON.stringify({
+      channel,
+      blocks,
+    }),
   });
 
   return response.data;
