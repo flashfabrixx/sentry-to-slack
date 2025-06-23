@@ -1,6 +1,6 @@
 # **Say Goodbye to Paid Sentry Alerts: Get Slack Error Notifications for Free!**
 
-Are you tired of paying for Sentry's Slack integration? What if I told you there's a way to send error notifications to Slack *for free*? That's right—no more paying for what you can do with a few simple tricks. By leveraging Sentry's webhook, Vercel's edge functions, and Slack’s free API, you can set up a system that gets real-time error alerts sent straight to Slack without shelling out a dime. Intrigued? Let me show you how.
+Are you tired of paying for Sentry's Slack integration? What if I told you there's a way to send error notifications to Slack _for free_? That's right—no more paying for what you can do with a few simple tricks. By leveraging Sentry's webhook, Vercel's edge functions, and Slack’s free API, you can set up a system that gets real-time error alerts sent straight to Slack without shelling out a dime. Intrigued? Let me show you how.
 
 ## Why Pay for Something You Can Do for Free?
 
@@ -51,3 +51,5 @@ To test if everything’s working, trigger an error in your Sentry project. Chec
 - **Real-Time Alerts**: Get instant error notifications as soon as they happen.
 - **Customizable**: You control how the Slack messages look and what data they contain.
 - **No Maintenance**: Vercel’s serverless functions handle everything with almost no setup costs.
+
+Hello World
